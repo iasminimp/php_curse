@@ -7,6 +7,8 @@
     <body>
         <?php
         #php orientado a objeto
+        
+        #https://github.com/PHPMailer/PHPMailer
         use PHPMailer\PHPMailer\PHPMailer;
         use PHPMailer\PHPMailer\SMTP;
         use PHPMailer\PHPMailer\Exception;
