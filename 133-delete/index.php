@@ -33,7 +33,8 @@ include_once './conexao.php';
                 }else{
                     echo "Editado: <br>";
                 }
-                echo "<a href='update.php?id=$id'> Editar</a>";
+                echo "<a href='update.php?id=$id'> Editar</a> <br>";
+                echo "<a href='delete.php?id=$id'> Apagar</a><br><br>";
                 echo "<hr>";
                 
             }
