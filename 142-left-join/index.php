@@ -21,7 +21,7 @@ include_once './conexao.php';
         $result_users = mysqli_query($conn, $query_users);
 
         while ($row_user = mysqli_fetch_assoc($result_users)) {
-            extract($row_user);
+            extract($row_user); 
             echo "ID: $id <br>";
             echo "Nome: $nome <br>";
             echo "E-mail: $email <br>";
