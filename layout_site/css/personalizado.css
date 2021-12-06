@@ -50,7 +50,7 @@ body { /*definir altura minima da nav bar*/
     text-align: center;
 }
 
-
+/*Seletor para personalizar a área de AÇÃO (call to action)*/
 .descr-action {
     background-image: url('../imagem/chamada_acao.jpg');
     background-repeat: no-repeat;
@@ -62,4 +62,76 @@ body { /*definir altura minima da nav bar*/
     margin-bottom: 0rem !important;
     border-radius: 0rem;
 }
+/*Seletor para personalizar a área detalhes do serviço na página home*/
+.descr-det {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
 
+}
+
+.titulo {
+    padding-bottom: 60px;
+}
+
+
+/*Seletor para personalizar o rodape/ footer da página*/
+.footer-per {
+    background-color: #090622;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+.footer-per ul li a.link-footer {
+    color: #fff !important;
+    text-decoration:none; /*para tirar o sublinhado*/
+}
+.footer-per ul li a.link-footer:hover {
+    color: #adaeaf !important;
+    text-decoration:none;
+}
+
+
+/*Seletor para personalizar o titulo da pagina sobre a empresa*/
+.head-sobre{
+    padding-top:60px;
+    padding-bottom: 80px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+
+/*Seletor para personalizar o conteúdo da página sobre empresa*/
+.sobre{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+
+.featurette-divider {
+    margin: 5rem 0;
+}
+
+
+/*Seletor para personalizar o titulo da pagina contato*/
+.head-contato{
+    padding-top:60px;
+    padding-bottom: 0px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+
+.contato{
+    padding-top:60px;
+    padding-bottom: 60px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+} 
