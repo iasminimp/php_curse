@@ -1,6 +1,7 @@
 <?php
     include_once './lib/lib_clean_url.php';
     include_once './config/config.php';
+    include_once './config/connection.php'; #incluindo a conexão com o banco de dados
     
     $url=filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING);
     $url_clean = cleanUrl($url);
