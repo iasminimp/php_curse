@@ -78,17 +78,31 @@
     echo $description_det."<br>";
     echo $image_dets."<br><hr>";
 
+
+    $query_footer = "SELECT title_site, title_contact, phone, address_footer, url_adress, cnpj, url_cnpj, title_social_networks,
+        txt_one_social_networks, link_one_social_networks,
+        txt_two_social_networks, link_two_social_networks,
+        txt_three_social_networks, link_three_social_networks,
+        txt_four_social_networks, link_four_social_networks,
+        FROM sts_footers
+        LIMIT 1";
+    $result_footer = mysqli_query($conn, $query_footer);
+    $row_footer = mysqli_fetch_assoc($result_footer);
+    var_dump($row_footer);
+
+
     #fazendo a conexão com o bd- i4smin - sts_homes_footers #########################################
-    $query_footer = "SELECT title_site, title_contact, phone, address_footer, url_address, cnpj, url_cnpj, title_social_networks, 
+  /* $query_footer = "SELECT title_site, title_contact, phone, address_footer, url_adress, cnpj, url_cnpj, title_social_networks, 
     txt_one_social_networks, link_one_social_networks, 
     txt_two_social_networks, link_two_social_networks, 
     txt_three_social_networks, link_three_social_networks,
     txt_four_social_networks, link_four_social_networks,
+    
         FROM sts_footers
         LIMIT 1";
     $result_home_footer = mysqli_query($conn, $query_footer);
     $row_home_footer = mysqli_fetch_assoc($result_home_footer);
-    var_dump($row_home_footer);
+    var_dump($row_home_footer);*/
 
 
 ?>
