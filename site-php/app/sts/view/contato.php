@@ -27,37 +27,63 @@
             
             #conectar com o bd-pra salvar as informações 
             $data=filter_input_array(INPUT_POST, FILTER_DEFAULT);
-            var_dump($data);
-
+            #var_dump($data);
             #quando clicar no botao - cadastrar - ira enviar
-            if(!empty($data['SendAddMsg'])){ #verifica se foi apertado
-                $query_cont_msg ="INSERT INTO sts_contacts_msgs (name, email, subject, content, created) VALUES ('".$data['name']."', '".$data['email']."', '".$data['subject']."', '".$data['content']."', NOW())";
-                mysqli_query ($conn, $query_cont_msg);
-                if(mysqli_insert_id($conn)){
-                    echo "Mensagem de contato enviada com sucesso! <br>";
-                }else{
-                    echo "Erro: Mensagem de contato não enviada com sucesso! <br>";
+            if(!empty($data['SendAddMsg'])){ #verifica se foi apertado 
+                $empty_input=false; /*nao tem nenhuma variavel vazia - do formulario */
+
+                //como validar de forma individual
+               /* if (empty($data['name'])){ //mensagem de erro de preenchimento para o nome 
+                    $empty_input = true;
+                    echo "<p style='color:#f00;'> Preencha o campo nome!</p>";
+                }elseif(empty($data['email'])){ //mensagem de erro de preenchimento no e-mail
+                    $empty_input = true;
+                    echo"<p style='color: #f00;'>Preencha o campo e-mail!</p>";
+                }elseif(empty($data['subject'])){ //mensagem de erro de preenchimento no assunto 
+                        $empty_input = true;
+                        echo"<p style='color: #f00;'>Preencha o campo assunto!</p>";
+                }elseif (empty($data['content'])){//mensagem de erro para preencher o campo de mensagem 
+                    $empty_input=true;
+                    echo "<p style='color: #f00;'>Preencha o campo de Mensagem!</p>";
+                } */               
+                
+                //Validar todos os campos ao mesmo tempo - atraves do array
+                $data=array_map('trim', $data);
+                if(in_array("", $data)){
+                    $empty_input=true;
+                    echo "<p style='color:#f00;'>Preencha todos os campos!</p>";
+                }elseif (!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){//validação do email - via php
+                    $empty_input=true;
+                    echo "<p style='color:#f00;'>Preencha o campo com e-mail válido!</p>";
                 }
-            
+                if(!$empty_input){
+                    $query_cont_msg ="INSERT INTO sts_contacts_msgs (name, email, subject, content, created) VALUES ('".$data['name']."', '".$data['email']."', '".$data['subject']."', '".$data['content']."', NOW())";
+                    mysqli_query ($conn, $query_cont_msg);
+                    if(mysqli_insert_id($conn)){
+                        echo "<p style='color: green;'>Mensagem de contato enviada com sucesso!</p> <br>";
+                    }else{
+                        echo "<p style='color: #f00'>Erro: Mensagem de contato não enviada com sucesso! </p><br>";
+                    }
+                }
             }
 
         ?>
 
 
+        <h1>Adicionar em Contato</h1>
 
-
-        <form method="POST" action="">
+        <form id="new_contacts_msgs" method="POST" action="">
             <label>Nome</label>
-            <input type="text" name="name" id="name" placeholder="Digite seu Nome Completo" required> <br><br>
+            <input type="text" name="name" id="name" placeholder="Digite seu Nome Completo" autofocus> <br><br> <!-- colocar o "required" no final, para que seja feita a validação pelo HTML; O "autofocus" é para o cursor ir para o primeiro campo-->
 
             <label> E-mail</label>
-            <input type="email" name="email" id="email" placeholder="Digite o seu melhor e-mail" required><br><br>   
+            <input type="email" name="email" id="email" placeholder="Digite o seu melhor e-mail"><br><br>   
             
             <label> Assunto</label>
-            <input type="text" name="subject" id="subject" placeholder="Digite o asssunto da mensagem" required><br><br> 
+            <input type="text" name="subject" id="subject" placeholder="Digite o asssunto da mensagem" ><br><br> 
 
             <label>Conteúdo</label>
-            <textarea name="content" id="content" rows="4" cols="50" placeholder="Digite o conteúdo da mensagem" required></textarea><br><br> 
+            <textarea name="content" id="content" rows="4" cols="50" placeholder="Digite o conteúdo da mensagem" ></textarea><br><br> 
 
             <input type="submit" value="Cadastrar" name="SendAddMsg"><br><br>
         </form>

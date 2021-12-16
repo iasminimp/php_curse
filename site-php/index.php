@@ -51,5 +51,8 @@
                 #echo 'URL não possui valor <br>';
             }
         ?>
+        <script src="app\sts\assets\js\jquery.min.js"> </script> <!--dentro do projeto -->
+        
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     </body>
 </html>
