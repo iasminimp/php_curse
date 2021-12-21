@@ -61,6 +61,7 @@
                     mysqli_query ($conn, $query_cont_msg);
                     if(mysqli_insert_id($conn)){
                         echo "<p style='color: green;'>Mensagem de contato enviada com sucesso!</p> <br>";
+                        unset($data); //para destruir os dados que estao no formulario - caso seja enviado com sucesso
                     }else{
                         echo "<p style='color: #f00'>Erro: Mensagem de contato não enviada com sucesso! </p><br>";
                     }
@@ -71,19 +72,39 @@
 
 
         <h1>Adicionar em Contato</h1>
-
+        <span class="msg"></span>
         <form id="new_contacts_msgs" method="POST" action="">
             <label>Nome</label>
-            <input type="text" name="name" id="name" placeholder="Digite seu Nome Completo" autofocus> <br><br> <!-- colocar o "required" no final, para que seja feita a validação pelo HTML; O "autofocus" é para o cursor ir para o primeiro campo-->
+            <input type="text" name="name" id="name" placeholder="Digite seu Nome Completo" autofocus value="
+            <?php
+                if(isset($data['name'])){
+                    echo $data['name'];
+                }
+            ?>
+            "> <br><br> <!-- colocar o "required" no final, para que seja feita a validação pelo HTML; O "autofocus" é para o cursor ir para o primeiro campo-->
 
             <label> E-mail</label>
-            <input type="email" name="email" id="email" placeholder="Digite o seu melhor e-mail"><br><br>   
+            <input type="email" name="email" id="email" placeholder="Digite o seu melhor e-mail" 
+            value="<?php
+                if(isset($data['email'])){
+                    echo $data['email'];
+                }
+            ?>"><br><br>   
             
             <label> Assunto</label>
-            <input type="text" name="subject" id="subject" placeholder="Digite o asssunto da mensagem" ><br><br> 
+            <input type="text" name="subject" id="subject" placeholder="Digite o asssunto da mensagem" 
+            value="<?php
+                if(isset($data['subject'])){
+                    echo $data['subject'];
+                }
+            ?>"><br><br>
 
             <label>Conteúdo</label>
-            <textarea name="content" id="content" rows="4" cols="50" placeholder="Digite o conteúdo da mensagem" ></textarea><br><br> 
+            <textarea name="content" id="content" rows="4" cols="50" placeholder="Digite o conteúdo da mensagem"><?php
+                if(isset($data['content'])){
+                    echo $data['content'];
+                }
+            ?></textarea><br><br> 
 
             <input type="submit" value="Cadastrar" name="SendAddMsg"><br><br>
         </form>

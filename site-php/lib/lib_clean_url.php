@@ -1,4 +1,13 @@
 <?php
+//echo "Página lib <br>";
+
+ob_start(); //limpar o buffer
+
+if(!defined('R4F5CC')){ //limitando acesso ao diretorio
+    header("Location: /");//redirecionar para a raiz
+    die("Erro: Página não encontrada!");
+}
+
 
 function cleanUrl($url) {
     var_dump($url);

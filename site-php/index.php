@@ -1,4 +1,6 @@
 <?php
+    define('R4F5CC', true); //limitando o acesso a diretorio
+
     include_once './lib/lib_clean_url.php';
     include_once './config/config.php';
     include_once './config/connection.php'; #incluindo a conexão com o banco de dados
@@ -52,7 +54,8 @@
             }
         ?>
         <script src="app\sts\assets\js\jquery.min.js"> </script> <!--dentro do projeto -->
+        <script src="app\sts\assets\js\custom.js"> </script>
         
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     </body>
 </html>

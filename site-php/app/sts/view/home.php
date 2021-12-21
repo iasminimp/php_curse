@@ -79,6 +79,23 @@
     echo $image_dets."<br><hr>";
 
 
+    $query_footer_2 = "SELECT title_site, title_contact, phone, endereco_footer, endereco_url, cnpj_footer, cnpj_url, title_redes, 
+        text_rede_um, link_rede_um, 
+        text_rede_dois, link_rede_dois, 
+        text_rede_tres, link_rede_tres, 
+        text_rede_quatro, link_rede_quatro, 
+        FROM sts_footer
+        LIMIT 1";
+    $result_footer_2 = mysqli_query($conn, $query_footer_2);
+    $row_footer_2=mysqli_fetch_assoc($result_footer_2);
+    var_dump($row_footer_2);
+
+
+
+
+
+
+
     $query_footer = "SELECT title_site, title_contact, phone, address_footer, url_adress, cnpj, url_cnpj, title_social_networks,
         txt_one_social_networks, link_one_social_networks,
         txt_two_social_networks, link_two_social_networks,
