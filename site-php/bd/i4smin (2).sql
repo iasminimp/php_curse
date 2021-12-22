@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 16-Dez-2021 às 15:46
+-- Tempo de geração: 22-Dez-2021 às 20:44
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS `sts_abouts_companies` (
 --
 
 INSERT INTO `sts_abouts_companies` (`id`, `title`, `description_about`, `image_about`, `sts_situation_id`, `created`, `modified`) VALUES
-(1, 'Sobre a empresa - Titulo 1', 'Sobre a empresa - texto de descrição', 'imagem - sobre a empresa 1.png', 1, '2021-12-10 12:03:19', NULL),
-(2, 'Sobre a empresa - Titulo 2', 'Sobre a empresa - texto de descrição', 'imagem - sobre a empresa 2.png', 1, '2021-12-10 12:04:17', NULL),
-(3, 'Sobre a empresa - Titulo 3', 'Sobre a empresa - texto de descrição', 'imagem - sobre a empresa 3.png', 2, '2021-12-10 12:04:17', NULL);
+(1, 'Sobre a empresa - Titulo 1', 'Sobre a empresa - texto de descrição', 'detalhes_servico.jpg', 1, '2021-12-10 12:03:19', NULL),
+(2, 'Sobre a empresa - Titulo 2', 'Sobre a empresa - texto de descrição', 'detalhes_servico.jpg', 1, '2021-12-10 12:04:17', NULL),
+(3, 'Sobre a empresa - Titulo 3', 'Sobre a empresa - texto de descrição', 'detalhes_servico.jpg', 2, '2021-12-10 12:04:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `sts_contacts_msgs` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `sts_sits_conts_msg_id` (`sts_sits_conts_msg_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `sts_contacts_msgs`
@@ -115,7 +115,48 @@ INSERT INTO `sts_contacts_msgs` (`id`, `name`, `email`, `subject`, `content`, `s
 (12, 'celke', 'celke@gmail.com', 'Ã£ssunto', 'conteÃºdo asda ^`!@@#23$%', 1, '2021-12-16 12:04:17', NULL),
 (13, 'celke3', 'celke@gmail.com', 'assunto 12', 'conteÃºdo', 1, '2021-12-16 12:06:41', NULL),
 (14, 'celke3', 'celke@gmail.com', 'assunto 12', 'conteÃºdo', 1, '2021-12-16 12:17:41', NULL),
-(15, 'celke3', 'celke@gmail.com', 'assunto 12', 'conteÃºdo', 1, '2021-12-16 12:30:13', NULL);
+(15, 'celke3', 'celke@gmail.com', 'assunto 12', 'conteÃºdo', 1, '2021-12-16 12:30:13', NULL),
+(16, 'ernanda', 'nanda@gmail.com', '123', 'adsd adadas das', 1, '2021-12-21 14:44:14', NULL),
+(17, 'ernanda', 'nanda@gmail.com', '123', 'adsd adadas das', 1, '2021-12-21 14:48:30', NULL),
+(18, 'farles', 'farles@gmail.com', 'farles - assunto', '123456789', 1, '2021-12-21 14:49:14', NULL),
+(19, 'fabinho', 'fabio123@gmail.com', 'asdad', 'sdsd', 1, '2021-12-22 17:31:14', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sts_footer`
+--
+
+DROP TABLE IF EXISTS `sts_footer`;
+CREATE TABLE IF NOT EXISTS `sts_footer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title_site` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_contact` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endereco_footer` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endereco_url` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cnpj_footer` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cnpj_url` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_redes` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text_rede_um` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link_rede_um` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text_rede_dois` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link_rede_dois` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text_rede_tres` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link_rede_tres` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text_rede_quatro` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link_rede_quatro` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `sts_footer`
+--
+
+INSERT INTO `sts_footer` (`id`, `title_site`, `title_contact`, `phone`, `endereco_footer`, `endereco_url`, `cnpj_footer`, `cnpj_url`, `title_redes`, `text_rede_um`, `link_rede_um`, `text_rede_dois`, `link_rede_dois`, `text_rede_tres`, `link_rede_tres`, `text_rede_quatro`, `link_rede_quatro`, `created`, `modified`) VALUES
+(1, 'titulo site', 'contato', '(27) 999090753', 'rua 08 N 34 - cohab', 'url endereco', '000 000 000 000 000', 'url - cnpj', 'redes sociais', 'T1 redes sociais', 'Link 1 redes sociais', 'T2 redes sociais', 'Link 2 redes sociais', 'T3 redes sociais', 'Link 3 redes sociais', 'T4 redes sociais', 'Link 4 redes sociais', '2021-12-21 16:30:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -236,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `sts_homes_servs` (
 --
 
 INSERT INTO `sts_homes_servs` (`id`, `title_serv`, `description_serv`, `icone_um_serv`, `titulo_um_serv`, `description_um_serv`, `icone_dois_serv`, `titulo_dois_serv`, `description_dois_serv`, `icone_tres_serv`, `titulo_tres_serv`, `description_tres_serv`, `created`, `modified`) VALUES
-(1, 'titulo serviço', 'descrição do serviço', 'icone - serviço 1', ' título - serviço 1', 'descrição do serviço 1', 'icone - serviço 2', ' título - serviço 2', 'descrição do serviço 2', 'icone - serviço 3', ' título - serviço 3', 'descrição do serviço 3', '2021-12-06 18:02:16', NULL);
+(1, 'titulo serviço', 'descrição do serviço', 'fas fa-map-marked-alt', ' título - serviço 1', 'descrição do serviço 1', 'fas fa-map-marked-alt', ' título - serviço 2', 'descrição do serviço 2', 'fas fa-map-marked-alt', ' título - serviço 3', 'descrição do serviço 3', '2021-12-06 18:02:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -263,6 +304,63 @@ CREATE TABLE IF NOT EXISTS `sts_homes_tops` (
 
 INSERT INTO `sts_homes_tops` (`id`, `title_top`, `description_top`, `link_btn_top`, `txt_btn_top`, `image_top`, `created`, `modified`) VALUES
 (1, 'Titulo Top', 'descricao top.', 'link do botao', 'texto botao', 'image', '2021-12-08 11:01:44', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sts_pages`
+--
+
+DROP TABLE IF EXISTS `sts_pages`;
+CREATE TABLE IF NOT EXISTS `sts_pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_page` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_page` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descricao` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `sts_pages`
+--
+
+INSERT INTO `sts_pages` (`id`, `name_page`, `title_page`, `descricao`, `created`, `modified`) VALUES
+(1, 'home', 'home - iasmin', 'site sobre ...', '2021-12-22 09:29:56', NULL),
+(2, 'contato', 'contato- iasmin', 'página sobre a empresa...', '2021-12-22 09:29:56', NULL),
+(3, 'sobre', 'sobre - iasmin', 'pagina de contato com a empresa ...', '2021-12-22 09:29:56', NULL),
+(4, '404', 'pagina nao encontrada - iasmin', 'pagina não encontrada', '2021-12-22 09:34:18', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sts_rodape`
+--
+
+DROP TABLE IF EXISTS `sts_rodape`;
+CREATE TABLE IF NOT EXISTS `sts_rodape` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title_site` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imagem_rodape` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contato_rodape` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_rodape` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_redes_rodape` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_rede_um` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text_rede_um` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_rede_dois` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text_rede_dois` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `sts_rodape`
+--
+
+INSERT INTO `sts_rodape` (`id`, `title_site`, `imagem_rodape`, `contato_rodape`, `phone_rodape`, `title_redes_rodape`, `title_rede_um`, `text_rede_um`, `title_rede_dois`, `text_rede_dois`, `created`, `modified`) VALUES
+(1, 'titulo site', 'imagem rodape .png', 'contato', '(xx) x.xxxx - xxxx', 'titulo redes', 'rede 1 - title', 'rede 1 - text', 'rede 2 - title', 'rede 2 - text', '2021-12-22 08:25:46', NULL);
 
 -- --------------------------------------------------------
 
