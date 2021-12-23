@@ -1,0 +1,137 @@
+/* 
+    Created on : 03/12/2021, 09:59:35
+    Author     : iasmin.pereira
+*/
+body { /*definir altura minima da nav bar*/
+    min-height: 75rem;
+    padding-top:3.5rem;
+}
+
+.descr-top{ /*personaliza o top da pagina home*/
+        /*background-color: #ff0000;*/
+    /* .. - sai do diretorio */
+    background-image:url('../imagem/topo.jpg'); /*setando a imagem de fundo*/
+    background-repeat:no-repeat; /*não repete, caso termine o tamanho*/ 
+    background-position:center; /*seta a posição da imagem, nesse caso: no centro*/
+    background-size: cover; /*para nao deixar a imagem muito esticada*/
+    padding-top: 120px; /*apartir de qual altura o texto sera exibido*/
+    color: #fff;/*cor*/
+    padding-bottom: 120px;
+    /*text-align: center;*/
+    margin-bottom:0rem !important;
+    border-radius: .0rem;
+}
+
+.descr-serv { /*Ref; descrição de serviços*/
+    background-color: #fff;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-radius: 0px;
+    margin-bottom: 0rem !important; /*tag "!important sobre escrever todo/qualquer css"*/
+}
+
+.circulo{
+    text-align: center;
+    width: 140px;
+    height: 140px;
+    /*background-color: #0095eb;*/
+    font-size: 52px;
+    padding-top: 24px;
+}
+
+.circulo:hover{ /*ao passar o mouse em cima do objeto*/
+    background-color: #0095eb;
+    color: #fff;
+}
+
+.centralizar{ /*para centralizar itens*/
+    margin: 0 auto !important;
+    float: none !important;
+    text-align: center;
+}
+
+/*Seletor para personalizar a área de AÇÃO (call to action)*/
+.descr-action {
+    background-image: url('../imagem/chamada_acao.jpg');
+    background-repeat: no-repeat;
+    background-position:center; 
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+/*Seletor para personalizar a área detalhes do serviço na página home*/
+.descr-det {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+
+}
+
+.titulo {
+    padding-bottom: 60px;
+}
+
+
+/*Seletor para personalizar o rodape/ footer da página*/
+.footer-per {
+    background-color: #090622;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+.footer-per ul li a.link-footer {
+    color: #fff !important;
+    text-decoration:none; /*para tirar o sublinhado*/
+}
+.footer-per ul li a.link-footer:hover {
+    color: #adaeaf !important;
+    text-decoration:none;
+}
+
+
+/*Seletor para personalizar o titulo da pagina sobre a empresa*/
+.head-sobre{
+    padding-top:60px;
+    padding-bottom: 80px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+
+/*Seletor para personalizar o conteúdo da página sobre empresa*/
+.sobre{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+
+.featurette-divider {
+    margin: 5rem 0;
+}
+
+
+/*Seletor para personalizar o titulo da pagina contato*/
+.head-contato{
+    padding-top:60px;
+    padding-bottom: 0px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+}
+
+.contato{
+    padding-top:60px;
+    padding-bottom: 60px;
+    background-color: #fff;
+    margin-bottom: 0rem !important;
+    border-radius: 0rem;
+} 

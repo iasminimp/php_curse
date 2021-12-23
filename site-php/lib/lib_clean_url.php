@@ -10,7 +10,7 @@ if(!defined('R4F5CC')){ //limitando acesso ao diretorio
 
 
 function cleanUrl($url) {
-    var_dump($url);
+    #var_dump($url);
     
     $format_a = '"!@#$%*()+{[}];:,\\\'<>°ºª';
     $format_b = '____________________________';
@@ -21,7 +21,7 @@ function cleanUrl($url) {
     $content_tag = strip_tags($content_replace);
 
     $content_url = trim($content_tag);
-    var_dump($content_url);
+    #var_dump($content_url);
 
     return $content_url;
 }

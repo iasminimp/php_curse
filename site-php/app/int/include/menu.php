@@ -7,7 +7,7 @@ if(!defined('R4F5CC')){ //limitando acesso ao diretorio
 ?>
 
 <!-- fixed-top : para fixar o menu no top, na pagina toda (scroll) -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Eighth navbar example">
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top" aria-label="Eighth navbar example">
         <div class="container">
             <a class="navbar-brand" href="<?php echo URLSITE; ?>">Iasmin</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"

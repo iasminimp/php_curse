@@ -28,7 +28,7 @@
         ?>
          <div class="jumbotron sobre">
         <div class='container'>
-            <h2 class='display-4 text-center titulo'> Sobre a Empresa</h2>
+            <h2 class='display-4 text-center titulo'> Instituição</h2>
             <?php  
                 while ($row_about = mysqli_fetch_assoc($result_abouts)){
                 //var_dump($row_about);
