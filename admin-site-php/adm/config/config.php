@@ -6,6 +6,9 @@
         die("Erro: Página não encontrada! <br>");
     }
 
+    #definição da URL da área administrativa
+    define('URLADM', "http://localhost/admin-site-php/adm");
+
     #Constantes com o valor do banco de dados
     define('HOST', "localhost");
     define('USER', "root");

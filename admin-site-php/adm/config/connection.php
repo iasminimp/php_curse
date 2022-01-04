@@ -15,7 +15,7 @@
     $conn = mysqli_connect($host.":". $port,$user,$password, $dbname);
 
     if($conn){
-        echo "Conexão realizada com sucesso (DataBase) <br>";
+        //echo "Conexão realizada com sucesso (DataBase) <br>";
     }else{
         die("Erro: Por favor tente novamente. Caso persista contate pelo e-mail: ".EMAILADM."!<br>");
     }

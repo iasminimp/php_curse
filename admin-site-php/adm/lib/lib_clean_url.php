@@ -5,7 +5,7 @@
         die("Erro: Página não encontrada! <br>");
     }
     
-    echo "acessou a Lib <br>";
+    //echo "acessou a Lib <br>";
 
     function cleanUrl($url){
         #var_dump($url);
