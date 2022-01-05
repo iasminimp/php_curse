@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     ob_start();#limpa o buffer de saida
     
@@ -13,6 +14,9 @@
 
     #incluindo  - conexão com o BD
     include_once './config/connection.php';
+
+    #incluindo a validação de acesso a area administrativa
+    include_once './lib/lib_validate_access.php';
 
     
     //carregando estaticamente um caminho para a pagina
@@ -48,6 +52,9 @@
     }else{
         $path_detail_b="";
     }*/
+
+    #validação 
+    $path_page=validateAccess($path_page);
 ?>
 
 
@@ -75,9 +82,8 @@
         <!-- Scripts JAVA -->
         <!--pelo link - sem baixar o java -->
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
-        <!-- 
         <script src="app/adms/assets/js/jquery.min.js"></script>
-        <script src="app/adms/assets/js/custom.js"></script>        -->
+        <script src="app/adms/assets/js/custom.js"></script>        
     </body>
 
 </html>
