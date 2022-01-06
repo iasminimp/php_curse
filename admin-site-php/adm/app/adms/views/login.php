@@ -68,7 +68,7 @@
                 }*/
 
                 if($row_user['adms_sits_user_id']!=1){ #situação Ativa (1)
-                    $msg = "<p style='color:#f00'> Usuário não pode realizar o login <p>";
+                    $msg = "<p style='color:#f00'> Para acessar necessário confirmar o E-mail! <p>";
                 }else if(password_verify($data['password'], $row_user['password'])){
                     //echo "Senha Válida! <br>";
 
@@ -119,6 +119,11 @@ if(isset($_SESSION['msg'])){
 
     <input type="submit" name="SendLogin" value="Acessar">
 </form>
+
+<p>
+    <a href="<?php echo URLADM.'/login_new_user';?>">Cadastrar</a>-
+    <a href="<?php echo URLADM.'/login_recover_password';?>">Esqueceu a Senha</a>
+</p>
 
 <p>
     Usuário: iasmin@email.com <br>

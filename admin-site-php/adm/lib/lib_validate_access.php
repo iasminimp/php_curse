@@ -8,10 +8,10 @@
 
     //echo "Validar permissão de Acesso!<br>";
     function validateAccess($path_page){
-        var_dump($path_page);
+        #var_dump($path_page);
 
-         #pages permitidas ao acesso publico
-        $page_public = ["login", "sair", "404"]; #array de paginas publicas
+        #pages permitidas ao acesso publico
+        $page_public = ["login", "sair", "404", "login_new_user", "login_recover_password"]; #array de paginas publicas
         
         #pages permitidas somente para usuários administrativo
         $page_restricted = ["dashboard", "users"]; #array de paginas restritas
