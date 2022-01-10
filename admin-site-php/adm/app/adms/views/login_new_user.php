@@ -41,7 +41,8 @@
     <label>E-mail</label>
     <input type="email" name="email" id="email" placeholder="Digite o seu melhor e-mail" ><br><br>
     <label>Senha</label>
-    <input type="password" name="password" id="password" placeholder="Digite a senha" ><br><br>
+    <input type="password" name="password" id="password" placeholder="Digite a senha" onkeyup="passwordStrength()" >
+    <span id="msgviewStrength"></span><br><br>
 
     <input type="submit" value="Cadastrar" name="AddNewUser">
 </form>
