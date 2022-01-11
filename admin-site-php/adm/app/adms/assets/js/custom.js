@@ -13,7 +13,7 @@ $(document).ready(function(){ //janela - pop up de notificação
    });
 
 });
-
+/*
 //validação do formulário  de NOVO CADASTRO 
 $(document).ready(function(){ //janela - pop up de notificação 
     // alert("Acessou a validação");
@@ -49,7 +49,7 @@ $(document).ready(function(){ //janela - pop up de notificação
     });
  
  });
-
+*/
 
 //função para validar a força da senha
  function passwordStrength(){
