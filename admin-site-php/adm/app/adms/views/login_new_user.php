@@ -10,16 +10,19 @@
 
     $msg=""; #iniciando a variavel com vazio (v=0;)
     $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-    #var_dump($data);
+    var_dump($data);
+
+    #incluindo o enviar email
+    include './lib/lib_send_email.php';
+    sendEmail();
+
+
     #verificando se o formulario esta preenchido corretamente para ir pro bd
     if(!empty($data['AddNewUser'])){
         #var_dump($data);
         #echo $data['id'];
-
         #VALIDAÇÃO senha - php
         $empty_input = false;
-
-
         $data = array_map('trim', $data); #retirando os espaços vazios do vetor/array
         if(in_array("", $data)){
             $empty_input = true;
