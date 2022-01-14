@@ -13,8 +13,16 @@
     var_dump($data);
 
     #incluindo o enviar email
-    include './lib/lib_send_email.php';
-    sendEmail();
+    /*include './lib/lib_send_email.php';
+
+    #validação do usuário através de um link de confirmação pelo E-mail
+    $email_data['to_email'] = "iasmin@gmail.com";
+    $email_data['to_name'] = "Iasmin";
+    $email_data['subject'] = "Titulo e-mail dinamico";
+    $email_data['content_html']="Conteúdo do e-mail com <b>HTML</b>";
+    $email_data['content_text']="Conteúdo somente texto";
+
+    sendEmail($email_data);*/
 
 
     #verificando se o formulario esta preenchido corretamente para ir pro bd
@@ -73,13 +81,50 @@
             $format_b = '                            ';
             $data['name'] = strtr($data['name'], $format_a, $format_b); #converte/substitui os caracteres em A para o formato de B (espaço)
 
-            $password_encrypted = password_hash($data['password'], PASSWORD_DEFAULT);
-            $query_user = "INSERT INTO adms_users (name, email, password, created) VALUES ('" . $data['name'] . "', '" . $data['email'] . "', '$password_encrypted', NOW())";
+            $password_encrypted = password_hash($data['password'], PASSWORD_DEFAULT);#encriptografando a senha
+            $conf_email = password_hash($data['password'].date("Y-m-d H:i:s"), PASSWORD_DEFAULT);
+            $query_user = "INSERT INTO adms_users (name, email, password, conf_email, created) VALUES ('" . $data['name'] . "', '" . $data['email'] . "', '$password_encrypted', '$conf_email', NOW())";
             mysqli_query($conn, $query_user); #executando a query
             if(mysqli_insert_id($conn)){
-                $msg="<p style='color:green'>Cadastro realizado com sucesso</p>";
+
+                #função que separa só o primeiro nome cadastrado pelo usuário
+                $name = explode(" ", $data['name']); #explode -> converte uma string em array
+                $first_name = $name[0]; #pegando o nome na primeira posição do vetor (0)
+
+                #incluindo o enviar email
+                include './lib/lib_send_email.php';
+
+                #validação do usuário através de um link de confirmação pelo E-mail
+                $email_data['to_email'] = $data['email'];
+                $email_data['to_name'] = $data['name'];
+
+                $url = URLADM. "/conf-email?key= ". $conf_email;
+
+                $email_data['subject'] = "Confirmação de Conta";
+                $email_data['content_html']="Prezado(a) $first_name <br><br>";
+                $email_data['content_html'].="Agradecemos a sua solicitação de cadastramento em nosso site!<br><br>";
+                $email_data['content_html'].= "Para que possamos liberar o seu cadastro em nosso sistema, solicitamos a confirmação do e-mail clicanco no link abaixo: <br><br>";
+                $email_data['content_html'].="Link: <a href='$url'>$url</a> <br><br>";
+                $email_data['content_html'] .= "Esta mensagem foi enviada a você pela empresa XXX.<br>Você está recebendo porque está cadastrado no banco de dados da empresa XXX. Nenhum e-mail enviado pela empresa XXX tem arquivos anexados ou solicita o preenchimento de senhas e informações cadastrais.<br><br>";
+                
+                $email_data['content_text']="Prezado(a) $first_name \n\n";
+                $email_data['content_text'].="Agradecemos a sua solicitação de cadastramento em nosso site!\n\n";
+                $email_data['content_text'].="Para que possamos liberar o seu cadastro em nosso sistema, solicitamos a confirmação do e-mail clicanco no link abaixo ou cole o link no navegador: \n\n";
+                $email_data['content_text'].="Link: $url\n\n";
+                $email_data['content_text'] .= "Esta mensagem foi enviada a você pela empresa XXX.\nVocê está recebendo porque está cadastrado no banco de dados da empresa XXX. Nenhum e-mail enviado pela empresa XXX tem arquivos anexados ou solicita o preenchimento de senhas e informações cadastrais.\n\n";
+
+                
+                #verificação - true or false: para enviar
+                
+                if (sendEmail($email_data, 2, $conn)){
+                    $msg="<p style='color:green'>Usuário cadastrado com sucesso. Necessário acessar a caixa de e-mail para confirmar o e-mail!</p>";
+                }else{
+                    $msg = "<p style='color: #f00'>Usuário cadastrado com sucesso. Houve erro ao enviar o e-mail de confirmação, entre em contato com ". EMAILADM. " para mais informações!</p>";
+                }
+
+                //$msg="<p style='color:green'>Cadastro realizado com sucesso</p>";
             }else{
-            $msg = "<p style='color: #f00'>Erro: Cadastrado não realizado com sucesso</p>";
+                $msg = "<p style='color: #f00'>Erro: Cadastrado não realizado com sucesso</p>";
             }
         }
         
@@ -104,7 +149,7 @@
     <input type="password" name="password" id="password" placeholder="Digite a senha" onkeyup="passwordStrength()" required >
     <span id="msgviewStrength"></span><br>
 
-    <p style="font-size: 13px;">
+    <p style="margin-top: 5px; font-size: 13px;">
         <span style='color: #f00'>*</span>:Campo Obrigatório 
     </p>
 
